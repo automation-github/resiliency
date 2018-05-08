@@ -57,7 +57,7 @@ def BuildJob(projectName) {
 
            if (result.equals("SUCCESS")) {
            } else {
-              error 'FAIL' //sh "exit 1" // this fails the stage
+              error 'FAIL' // this fails the stage
            }
          }
        }
@@ -68,8 +68,6 @@ def BuildJob(projectName) {
 }
 
 node {
-  // agent any
-  // stages {
     stage('installation') {
       sh "python2.7 /var/tmp/Nightswatch/deploy/upgrade_machines_sa.py -p $target_cluster --ininame \'/var/lib/jenkins/nightswatch/5.1/config.ini\'"
     }
@@ -89,6 +87,4 @@ node {
     stage('publish junit results') {
       junit(testResults: '*.xml', healthScaleFactor: 1.0, allowEmptyResults: true)
     }
-
-  // }
 }
