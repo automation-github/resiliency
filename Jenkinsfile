@@ -76,13 +76,9 @@ node {
           }
     }
 
-    stage ('resiliency_with_machine_groups_npvr_5.1') {
-      BuildJob('resiliency_with_machine_groups_npvr_5.1')
-    }
+    BuildJob('resiliency_with_machine_groups_npvr_5.1')
 
-    stage ('resiliency_with_machine_groups_rb_5.1') {
-      BuildJob('resiliency_with_machine_groups_rb_5.1')
-    }
+    BuildJob('resiliency_with_machine_groups_rb_5.1')
 
     stage('copy xmls') {
       steps {
